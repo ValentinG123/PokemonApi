@@ -2,6 +2,7 @@ import axios from "axios";
 import React,{useState,useEffect} from "react";
 import Main from "./components/Main";
 import Navbar from './components/Navbar'
+import PokemonSelect from "./components/PokemonSelect";
 function App() {
   const [name,setName] = useState('')
 useEffect(() => {
@@ -16,9 +17,10 @@ useEffect(() => {
 }, [])
 
   return (
-    <div className="max-w-[420px] bg-black h-screen">
+    <div className="max-w-[420px] bg-black h-screen home bg-no-repeat bg-cover">
       <Navbar/>
       <Main/>
+      {/* <PokemonSelect/> */}
     </div>
   );
 }

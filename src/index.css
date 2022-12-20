@@ -5,6 +5,75 @@
 .home{
     background-image: url(./assets/Backgrounds/Home.png);
 }
-.electrico{
+
+.bug {
+  }
+  
+  .water {
+    background-image: url(./assets/Backgrounds/Agua.png);
+  }
+  
+  .grass {
+    background-image: url(./assets/Backgrounds/Hoja.png);
+  }
+  
+  .fire {
+    background-image: url(./assets/Backgrounds/Fuego.png);
+  }
+  
+  .normal {
     background-image: url(./assets/Backgrounds/Electric.png);
-}
+  }
+  
+  .poison {
+    background-image: url(./assets/Backgrounds/Poison.png);
+  }
+  
+  .electric {
+    background-image: url(./assets/Backgrounds/Electric.png);
+  }
+  .ground {
+    background-image: url(./assets/Backgrounds/Grass.png);
+  }
+  
+  .fairy {
+    background-image: url(./assets/Backgrounds/Hada.png);
+  }
+  
+  .fighting {
+    background-image: url(./assets/Backgrounds/Lucha.png);
+  }
+  .psychic {
+    background-image: url(./assets/Backgrounds/Psico.png);
+  }
+  
+  .ghost {
+    background-image: url(./assets/Backgrounds/Ghost.png);
+  }
+  .rock {
+    background-image: url(./assets/Backgrounds/Rocaa.png);
+  }
+  .ice {
+    background-image: url(./assets/Backgrounds/Hielooo.png);
+  }
+  .flying {
+    background-image: url(./assets/Backgrounds/Flying.png);
+  }
+  .dark {
+    background-image: url(./assets/Backgrounds/Ghost.png);
+  }
+  
+  .dragon {
+    background-image: url(./assets/Backgrounds/Lucha.png);
+  }
+  
+  .steel {
+    background-image: url(./assets/Backgrounds/Metal.png);
+  }
+  .unknown {
+    background-image: url(./assets/Backgrounds/Home.png);
+  }
+  
+  .shadow {
+    background-image: url(./assets/Backgrounds/Electric.png);
+  }

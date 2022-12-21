@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar";
 import PokemonCard from "./components/PokemonCard";
 import PokemonSelect from "./components/PokemonSelect";
 import { getPokemon,searchPokemones,getPokemonData } from "./Api";
+import Pagination from "./components/Pagination";
 function App() {
   const [pokemonData, setPokemonData] = useState([]);
   const [initialPokemon, setInitialPokemon] = useState([]);
@@ -22,7 +23,8 @@ function App() {
   useEffect(() => {
     
     fetchPokemones()
-  }, []);
+  }, [page]);
+  console.log(page)
   return (
     <div className="max-w-[420px] bg-black h-screen home bg-no-repeat bg-cover">
       {name.length === 0 ? (
@@ -30,6 +32,8 @@ function App() {
           <Navbar />
           <Main />
           <PokemonCard initialPokemon={initialPokemon}/>
+          <Pagination nextPage={() => setPage(page + 1)} backPage={() => setPage(page - 1)} page={page}/>
+          <p className="text-center my-4">Valentin Graglia</p>
         </div>
       ) : (
         <PokemonSelect pokemonData={pokemonData} />

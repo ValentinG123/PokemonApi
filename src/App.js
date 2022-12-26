@@ -71,7 +71,9 @@ const handleInputChange = (event) => {
         <Main name={name} handleInputChange={handleInputChange} enviarDatos={enviarDatos} searchName={searchName}/>
         <PokemonCard initialPokemon={initialPokemon} pokemonFilteredData={pokemonFilteredData} page={page} perPage={perPage}/>
         <Pagination nextPage={() => setPage(page + 1)} backPage={() => setPage(page - 1)} page={page}/>
-        <p className="text-center my-2">Valentin Graglia</p>
+        <div className="flex">
+        <a href='https://www.linkedin.com/in/valentin-graglia-a416aa20b/' target="_blank" className="mx-auto my-2">Valentin Graglia</a>
+        </div>
       </div>
 
       ) : (

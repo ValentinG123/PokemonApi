@@ -13,6 +13,8 @@ const Navbar = ({ setPage,setFilter,setPokemonFilteredData }) => {
     "psychic",
     "dragon",
     "fairy",
+    "normal",
+
   ];
   const types2 = [
     "flying",
@@ -23,7 +25,7 @@ const Navbar = ({ setPage,setFilter,setPokemonFilteredData }) => {
     "electric",
     "ice",
     "dark",
-    "normal",
+    
   ];
 
   return (
@@ -43,15 +45,17 @@ const Navbar = ({ setPage,setFilter,setPokemonFilteredData }) => {
       </div>
       {toggle ? (
         <div className="absolute flex bg-black/40 w-full h-96 top-20">
-            <div className=" bg-black/80 space-y-2 flex flex-col w-[50%] justify-center">
+            <div className=" bg-black/80 space-y-2 flex flex-col w-[50%]">
               {types.map((type,indx) => (
-                <button className="text-xl" key={indx} onClick={() => {setToggle((prev) => !prev);setFilter(type)}}>{type}</button>
+                <button className="text-xl" key={indx} onClick={() => {setToggle((prev) => !prev);setFilter(type);setPage(0)}}>{type}</button>
                 ))}
             </div>
-          <div className=" bg-black/80 space-y-2 flex flex-col w-[50%] justify-center">
+          <div className=" bg-black/80 space-y-2 flex flex-col w-[50%]">
               {types2.map((type,indx) => (
-                <button className="text-xl" key={indx} onClick={() => {setToggle((prev) => !prev);setFilter(type)}}>{type}</button>
+                <button className="text-xl" key={indx} onClick={() => {setToggle((prev) => !prev);setFilter(type);setPage(0)}}>{type}</button>
                 ))}
+                <button className="text-xl" onClick={() => {setToggle((prev) => !prev);setFilter('');setPage(0);setPokemonFilteredData('')}}>All</button>
+
           </div>
         </div>
       ) : (

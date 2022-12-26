@@ -5,7 +5,7 @@ const PokemonCard = ({initialPokemon,pokemonFilteredData,page,perPage}) => {
   const filterPokemon = pokemonFilteredData
   return (
     <>
-       { filterPokemon.length === 0 ? <div className='text-white grid grid-cols-2 gap-3 place-items-center my-4'>
+       { filterPokemon.length === 0 ? <div className='text-white grid grid-cols-2 gap-5 place-items-center my-4'>
        { pokemones.map((data) => (
           <div className={`w-36 h-28 rounded-xl ${data.data.types[0].type.name}`} key={data.data.id}>
           <div className='flex items-center justify-between h-[75px]'>
@@ -18,7 +18,7 @@ const PokemonCard = ({initialPokemon,pokemonFilteredData,page,perPage}) => {
         ))}
 </div>
         :
-        <div className='text-white grid grid-cols-2 gap-3 place-items-center my-4'>
+        <div className='text-white grid grid-cols-2 gap-5 place-items-center my-4'>
        {
         filterPokemon.slice(
           (page + 0) * perPage,

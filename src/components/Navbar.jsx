@@ -1,25 +1,68 @@
-import React from 'react'
-import pokeball from '../assets/pokepoke.png'
-import {FaBars} from 'react-icons/fa'
-const Navbar = () => {
+import React, { useState } from "react";
+import pokeball from "../assets/pokepoke.png";
+import { FaBars } from "react-icons/fa";
+const Navbar = ({ setPage }) => {
+  const [toggle, setToggle] = useState(false);
+  const types = [
+    "fighting",
+    "poison",
+    "rock",
+    "ghost",
+    "fire",
+    "grass",
+    "psychic",
+    "dragon",
+    "fairy",
+  ];
+  const types2 = [
+    "flying",
+    "ground",
+    "bug",
+    "steel",
+    "water",
+    "electric",
+    "ice",
+    "dark",
+    "normal",
+  ];
+
   return (
-    <div className='w-full h-20 flex justify-between items-center'>
-      <h1 className='text-white mx-6 flex items-center text-2xl'>P<span><img src={pokeball} alt="" className='w-4 h-4'/></span>kedex</h1>
-      <div className='mx-6'>
-        <FaBars className='text-2xl'/>
+    <div className="w-full h-20 flex justify-between items-center relative">
+      <button
+        onClick={() => setPage(0)}
+        className="text-white mx-6 flex items-center text-2xl"
+      >
+        P
+        <span>
+          <img src={pokeball} alt="" className="w-4 h-4" />
+        </span>
+        kedex
+      </button>
+      <div className="mx-6" onClick={() => setToggle((prev) => !prev)}>
+        <FaBars className="text-2xl" />
       </div>
-      <div className='hidden flex flex-col justify-center items-center bg-red-200 w-full h-96'>
-        <ul className=' bg-red-500 space-y-8'>
-          <li>Electric</li>
-          <li>Electric</li>
-          <li>Electric</li>
-          <li>Electric</li>
-          <li>Electric</li>
-
-        </ul>
-      </div>
+      {toggle ? (
+        <div className="absolute flex  bg-red-200 w-full h-auto top-20">
+          <div className="bg-green-200 w-[50%] flex flex-col items-center">
+            <ul className=" bg-red-500 space-y-1">
+              {types.map((type) => (
+                <li className="text-xl">{type}</li>
+              ))}
+            </ul>
+          </div>
+          <div className="bg-red-400 w-[50%] flex flex-col items-center">
+          <ul className=" bg-red-500 space-y-1">
+              {types2.map((type) => (
+                <li className="text-xl">{type}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      ) : (
+        ""
+      )}
     </div>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;

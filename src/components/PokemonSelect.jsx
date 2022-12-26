@@ -1,22 +1,25 @@
 import React from 'react'
 import arrowleft from '../assets/arrowLeft.png'
 import Stats from './Stats'
+import pokepoke from '../assets/pokepoke.png'
 const PokemonSelect = ({pokemonData}) => {
-  console.log(pokemonData)
   return (
     <div className='w-full h-screen'>
-    
+   
  {
- pokemonData === undefined ? 
+ pokemonData.length === 0 ? 
  (
-  <div className="bg-white w-[300px] h-[200px] flex justify-center items-center flex-col rounded-3xl mt-20 mx-auto">
+  <div className=''>
+        <img src={arrowleft} alt="" className='w-8 h-8 mx-4'/>
+  <div className="bg-white w-[300px] h-[200px] flex justify-center items-center flex-col rounded-3xl my-8 mx-auto"> 
     <h2 className="text-red-400 uppercase">Sorry</h2>
     <div className="flex items-center">
       <span className="text-[50px]">4</span>
-      <img src='' alt="" className="w-[40px] h-[40px]" />
+      <img src={pokepoke} alt="" className="w-[40px] h-[40px]" />
       <span className="text-[50px]">4</span>
     </div>
     <p>Pokemon don't found</p>
+  </div>
   </div>
 ) :
   (

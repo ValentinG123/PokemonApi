@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import pokeball from "../assets/pokepoke.png";
 import { FaBars } from "react-icons/fa";
-const Navbar = ({ setPage }) => {
+const Navbar = ({ setPage,setFilter,setPokemonFilteredData }) => {
   const [toggle, setToggle] = useState(false);
   const types = [
     "fighting",
@@ -29,7 +29,7 @@ const Navbar = ({ setPage }) => {
   return (
     <div className="w-full h-20 flex justify-between items-center relative">
       <button
-        onClick={() => setPage(0)}
+        onClick={() => {setPage(0);setPokemonFilteredData('');setFilter('')}}
         className="text-white mx-6 flex items-center text-2xl"
       >
         P
@@ -42,20 +42,16 @@ const Navbar = ({ setPage }) => {
         <FaBars className="text-2xl" />
       </div>
       {toggle ? (
-        <div className="absolute flex  bg-red-200 w-full h-auto top-20">
-          <div className="bg-green-200 w-[50%] flex flex-col items-center">
-            <ul className=" bg-red-500 space-y-1">
-              {types.map((type) => (
-                <li className="text-xl">{type}</li>
-              ))}
-            </ul>
-          </div>
-          <div className="bg-red-400 w-[50%] flex flex-col items-center">
-          <ul className=" bg-red-500 space-y-1">
-              {types2.map((type) => (
-                <li className="text-xl">{type}</li>
-              ))}
-            </ul>
+        <div className="absolute flex bg-black/40 w-full h-96 top-20">
+            <div className=" bg-black/80 space-y-2 flex flex-col w-[50%] justify-center">
+              {types.map((type,indx) => (
+                <button className="text-xl" key={indx} onClick={() => {setToggle((prev) => !prev);setFilter(type)}}>{type}</button>
+                ))}
+            </div>
+          <div className=" bg-black/80 space-y-2 flex flex-col w-[50%] justify-center">
+              {types2.map((type,indx) => (
+                <button className="text-xl" key={indx} onClick={() => {setToggle((prev) => !prev);setFilter(type)}}>{type}</button>
+                ))}
           </div>
         </div>
       ) : (

@@ -1,8 +1,13 @@
 import React from 'react'
-import arrowleft from '../assets/arrowLeft.png'
 import Stats from './Stats'
 import pokepoke from '../assets/pokepoke.png'
-const PokemonSelect = ({pokemonData}) => {
+import {BsArrowLeft} from 'react-icons/bs'
+const PokemonSelect = ({pokemonData,setLoading,setName,setPokemonData}) => {
+  const clean = () => {
+    setLoading(true)
+    setName('')
+    setPokemonData('')
+  }
   return (
     <div className='w-full h-screen'>
    
@@ -10,7 +15,7 @@ const PokemonSelect = ({pokemonData}) => {
  pokemonData.length === 0 ? 
  (
   <div className=''>
-        <img src={arrowleft} alt="" className='w-8 h-8 mx-4'/>
+    <button onClick={clean} className='text-3xl mx-3 my-3 text-white'><BsArrowLeft/></button>
   <div className="bg-white w-[300px] h-[200px] flex justify-center items-center flex-col rounded-3xl my-8 mx-auto"> 
     <h2 className="text-red-400 uppercase">Sorry</h2>
     <div className="flex items-center">
@@ -25,23 +30,23 @@ const PokemonSelect = ({pokemonData}) => {
   (
     <div className={`${pokemonData.types[0].type.name} bg-no-repeat bg-cover w-full h-full flex flex-col items-center`}>
     <div className='flex items-center w-full h-10 justify-between'>
-        <img src={arrowleft} alt="" className='w-8 h-8 mx-4'/>
+    <button onClick={clean} className='text-3xl mx-3'><BsArrowLeft/></button>
         <p className='mx-6 font-bold text-2xl'>#{pokemonData.id}</p>
     </div>
     <div className=' w-60 h-60 my-5 flex justify-center items-center'>
-    <img src={pokemonData.sprites.other.dream_world.front_default} alt="" />
+    <img src={pokemonData.sprites.other.dream_world.front_default === null ? pokemonData.sprites.other.home.front_default : pokemonData.sprites.other.dream_world.front_default } alt="" />
     </div>
     <div className='w-full'>
         <h1 className='text-center text-4xl uppercase'>{pokemonData.name}</h1>
-        <div className='flex justify-evenly my-1'>
+        <div className='flex justify-evenly my-3'>
           {
             pokemonData.types.length === 2 ? 
-            <div className='flex'>
-                        <p className=' w-24 h-7 rounded-full text-center'>{pokemonData.types[0].type.name}</p>
-           <p className='w-24 h-7 rounded-full text-center'>{pokemonData.types[1].type.name}</p>
+            <div className='flex w-full justify-evenly'>
+                        <p className={`${pokemonData.types[0].type.name} border-2 border-black bg-cover bg-center w-24 font-bold h-7 rounded-full text-center`}>{pokemonData.types[0].type.name}</p>
+           <p className={`${pokemonData.types[1].type.name} border-2 border-black bg-cover bg-center w-24 font-bold h-7 rounded-full text-center`}>{pokemonData.types[1].type.name}</p>
             </div> :
             <div>
-                        <p className=' w-24 h-7 rounded-full text-center'>{pokemonData.types[0].type.name}</p>
+                        <p className={`${pokemonData.types[0].type.name} border-2 border-black bg-cover bg-center w-24 font-bold h-7 rounded-full text-center`}>{pokemonData.types[0].type.name}</p>
             </div>
           }
  
@@ -51,7 +56,7 @@ const PokemonSelect = ({pokemonData}) => {
            <p className='mx-10 font-bold'>Heigth: <span className='font-normal'>{pokemonData.height}</span></p>
         </div>
     </div>
-    <div className='w-full h-42 my-5'>
+    <div className='my-5'>
       <Stats pokemon={pokemonData}/>
     </div>
 </div>

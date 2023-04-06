@@ -26,3 +26,7 @@ export const searchPokemones = async (limit=6,offset=0) => {
     const response = await axios.get(url)
     return response
   }
+  export const getSelectedPokemon = async (url) => {
+    const response = await axios.get(url)
+    return response
+  }

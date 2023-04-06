@@ -8,6 +8,7 @@ const PokemonSelect = ({pokemonData,setLoading,setName,setPokemonData}) => {
     setName('')
     setPokemonData('')
   }
+  
   return (
     <div className='w-full h-screen'>
    
